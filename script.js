@@ -38,7 +38,7 @@ const pokemon3 = {
     height: 5,
     types: ['water']
 };
-pokemonRepository(pokemon3);
+pokemonRepository.add(pokemon3);
 
 //console.log(pokemonList);
 
