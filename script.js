@@ -32,8 +32,7 @@ console.log(pokemonList);
 let specialHeight = 6;
 
 //iterate over each pokemon
-for (let i = 0; i < pokemonList.length; i++) {
-    const pokemon = pokemonList[i];
+pokemonList.forEach(pokemon => { 
 
     //check the height of the pokemon and write a message based on the height 
     if (pokemon.height > specialHeight) {
@@ -43,4 +42,4 @@ for (let i = 0; i < pokemonList.length; i++) {
     } else {
         document.write(`${pokemon.name} is a small pokemon.<br>`);
     }
-}
+}   );
