@@ -1,4 +1,19 @@
-let pokemonList = []
+const pokemonRepository = (function() {
+    let pokemonList = [];
+
+    function getAll() {
+        return pokemonList;
+    }
+    function add(pokemon){
+        pokemonList.push;
+    }
+    return{
+        getAll: getAll,
+        add: add
+    };
+})();
+
+let specialHeight = 6;
 
 //Pokemon 1
 const pokemon1 =
@@ -7,7 +22,7 @@ const pokemon1 =
     height: 7,
     types: [grass, poison]
 };
-pokemonList.push(pokemon1);
+pokemonRepository.add(pokemon1);
 
 //Pokemon2
 const pokemon2 = {
@@ -15,7 +30,7 @@ const pokemon2 = {
     height: 6,
     types: ['fire']
 };
-pokemonList.push(pokemon2)
+pokemonRepository.add(pokemon2);
 
 //Pokemon 3
 const pokemon3 = {
@@ -23,16 +38,15 @@ const pokemon3 = {
     height: 5,
     types: ['water']
 };
-pokemonList.push(pokemon3)
+pokemonRepository(pokemon3);
 
-console.log(pokemonList);
+//console.log(pokemonList);
 
 //set height edge for unique pokemon
 
-let specialHeight = 6;
 
 //iterate over each pokemon
-pokemonList.forEach(pokemon => { 
+pokemonRepository.getAll().forEach(pokemon => { 
 
     //check the height of the pokemon and write a message based on the height 
     if (pokemon.height > specialHeight) {
