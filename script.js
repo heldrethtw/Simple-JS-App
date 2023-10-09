@@ -4,10 +4,12 @@ const pokemonRepository = (function() {
     function getAll() {
         return pokemonList;
     }
-    function add(pokemon){
-        pokemonList.push;
+
+    function add(pokemon) {
+        pokemonList.push(pokemon);
     }
-    return{
+
+    return {
         getAll: getAll,
         add: add
     };
@@ -15,16 +17,13 @@ const pokemonRepository = (function() {
 
 let specialHeight = 6;
 
-//Pokemon 1
-const pokemon1 =
-{
+const pokemon1 = {
     name: "Bulbasaur",
     height: 7,
-    types: [grass, poison]
+    types: ['grass', 'poison']
 };
 pokemonRepository.add(pokemon1);
 
-//Pokemon2
 const pokemon2 = {
     name: "Charmander",
     height: 6,
@@ -32,7 +31,6 @@ const pokemon2 = {
 };
 pokemonRepository.add(pokemon2);
 
-//Pokemon 3
 const pokemon3 = {
     name: "Squirtle",
     height: 5,
@@ -40,20 +38,20 @@ const pokemon3 = {
 };
 pokemonRepository.add(pokemon3);
 
-//console.log(pokemonList);
+pokemonRepository.getAll().forEach(pokemon => {
+    const ulElement = document.querySelector('.pokemon-list'); // Corrected selector
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('pokemon-button');
+    listItem.appendChild(button);
+    ulElement.appendChild(listItem);
 
-//set height edge for unique pokemon
-
-
-//iterate over each pokemon
-pokemonRepository.getAll().forEach(pokemon => { 
-
-    //check the height of the pokemon and write a message based on the height 
     if (pokemon.height > specialHeight) {
-        document.write(`${pokemon.name} (height:${pokemon.height} - wow, that's big!<br>`);
+        document.write(`${pokemon.name} (height:${pokemon.height}) - wow, that's big!<br>`); // Corrected document.write
     } else if (pokemon.height > 5) {
-        document.write(`${pokemon.name} is an averaged sized pokemon.<br>`);
+        document.write(`${pokemon.name} is an averaged sized pokemon.<br>`); // Corrected document.write
     } else {
-        document.write(`${pokemon.name} is a small pokemon.<br>`);
+        document.write(`${pokemon.name} is a small pokemon.<br>`); // Corrected document.write
     }
-}   );
+});

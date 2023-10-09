@@ -1,0 +1,16 @@
+
+.pokemon-button {
+    margin: 10px;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: #ff6600; /* Example background color */
+    color: #ffffff; /* Example text color */
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .pokemon-button:hover {
+    background-color: #ff8c1a; /* Example hover background color */
+  }
