@@ -1,4 +1,4 @@
-const pokemonRepository = (function() {
+const pokemonRepository = (function () {
     let pokemonList = [];
 
     function getAll() {
