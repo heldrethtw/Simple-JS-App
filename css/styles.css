@@ -6,15 +6,15 @@ body, h1, ul, li, button {
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  background-color: #d8bbdd;
   color: #333;
 }
 
 .container {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #bba8c7;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -30,32 +30,41 @@ header h1 {
 
 .pokemon-list {
   list-style-type: none;
+  display: flex; /* Align buttons horizontally */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: space-around; /* Space the buttons evenly */
 }
 
+/* ... (other CSS unchanged) */
+
 .custom-button {
-  display: block;
-  width: 100%;  /* Full width on mobile */
-  padding: 10px 20px;
+  display: inline-block;
+  min-width: 100px;  /* Minimum width */
+  min-height: 40px;  /* Minimum height */
+  width: 35%;
+  padding: 20px 20px;
   margin: 10px 0;
   border: none;
-  background-color: #ff6600;
-  color: white;
+  background-color: #5c0ff6;
+  color: rgb(215, 230, 230);
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s;
   border-radius: 5px;
-  border: 2px solid #e55d00;  /* A complementary border color */
+  border: 2px solid #31302f;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  line-height: 1.5;
 }
 
 .custom-button:hover {
   background-color: #ff8c1a;
-  transform: rotate(360deg);  /* Spin effect */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);  /* Added box-shadow on hover */
 }
 
 /* Media Queries for Larger Screens */
 @media (min-width: 768px) {
   .custom-button {
-      width: 70%;  /* Adjusted width on desktop */
-      margin-left: auto;
-      margin-right: auto;
+    width: 22.5%;
+    min-width: 150px;  /* Increased minimum width for larger screens */
   }
 }
