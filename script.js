@@ -18,6 +18,10 @@ let pokemonRepository = (function () {
    * Returns the pokemonList array.
    * @returns {Array} - The array of Pokemon objects.
    */
+  function getAll() {
+    return pokemonList;
+  }
+
   /**
    * Displays the details of a selected Pokemon.
    * @param {Object} pokemon - The Pokemon object to display details for.
@@ -34,6 +38,7 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
+
 
   /**
    * Adds a list item with a button for a given Pokemon.
@@ -100,6 +105,7 @@ let pokemonRepository = (function () {
    * @param {Array} contentElements - An array of DOM elements to be displayed in the modal body.
    */
   function showModal(title, contentElements) {
+
     let modalTitle = document.querySelector('#pokemonModalLabel');
 
 
