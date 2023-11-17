@@ -1,140 +1,145 @@
 let pokemonRepository = (function () {
-    let pokemonList = [];
-    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  
-    function add(pokemon) {
-      if (typeof pokemon === 'object' && 'name' in pokemon) {
-        pokemonList.push(pokemon);
-      } else {
-        console.error('Invalid pokemon data');
-      }
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+
+  /**
+   * Adds a Pokemon object to the pokemonList array.
+   * @param {Object} pokemon - The Pokemon object to add.
+   */
+  function add(pokemon) {
+    if (typeof pokemon === 'object' && 'name' in pokemon) {
+      pokemonList.push(pokemon);
+    } else {
+      console.error('Invalid pokemon data');
     }
-  
-    function getAll() {
-      return pokemonList;
-    }
-  
-    function addListItem(pokemon) {
-      let listItem = document.createElement('li');
-      let button = document.createElement('button');
-      button.innerText = pokemon.name;
-      button.classList.add('custom-button');
-      listItem.appendChild(button);
-      document.querySelector('.pokemon-list').appendChild(listItem);
-  
-      button.addEventListener('click', function () {
-        showDetails(pokemon);
-      });
-    }
-  
-    function loadList() {
-      return fetch(apiUrl).then(function (response) {
-        return response.json();
-      }).then(function (json) {
-        json.results.forEach(function (item) {
-          let pokemon = {
-            name: item.name,
-            detailsUrl: item.url
-          };
-          add(pokemon);
-        });
-      }).catch(function (e) {
-        console.error(e);
-      });
-    }
-  
-    function loadDetails(item) {
-      let url = item.detailsUrl;
-      return fetch(url).then(function (response) {
-        return response.json();
-      }).then(function (details) {
-        item.imageUrl = details.sprites.front_default;
-        item.height = details.height;
-        item.types = details.types;
-      }).catch(function (e) {
-        console.error(e);
-      });
-    }
-  
-    function showModal(title, contentElements) {
-      let modalContainer = document.querySelector('#modal-container');
-      modalContainer.innerHTML = '';
-  
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
-  
-      let closeButton = document.createElement('button');
-      closeButton.innerText = 'Close';
-      closeButton.addEventListener('click', hideModal);
-  
-      let titleElement = document.createElement('h1');
-      titleElement.innerText = title;
-  
-      modal.appendChild(closeButton);
-      modal.appendChild(titleElement);
-  
-      contentElements.forEach((element) => {
-        modal.appendChild(element);
-      });
-  
-      modalContainer.appendChild(modal);
-      modalContainer.classList.add('is-visible');
-    }
-  
-    function hideModal() {
-      let modalContainer = document.querySelector('#modal-container');
-      modalContainer.classList.remove('is-visible');
-    }
-  
-    function showDetails(pokemon) {
-      loadDetails(pokemon).then(() => {
-        let content = [];
-  
-        let nameElement = document.createElement('p');
-        nameElement.innerText = `Name: ${pokemon.name}`;
-  
-        let heightElement = document.createElement('p');
-        heightElement.innerText = `Height: ${pokemon.height}`;
-  
-        let imageElement = document.createElement('img');
-        imageElement.src = pokemon.imageUrl;
-  
-        content.push(nameElement, heightElement, imageElement);
-  
-        showModal('Pokémon Details', content);
-      });
-    }
-  
-    return {
-      getAll: getAll,
-      add: add,
-      addListItem: addListItem,
-      loadList: loadList,
-      loadDetails: loadDetails,
-      showDetails: showDetails
-    };
-  })();
-  
-  // Fetch data and populate the list
-  pokemonRepository.loadList().then(function () {
-    pokemonRepository.getAll().forEach(function (pokemon) {
-      pokemonRepository.addListItem(pokemon);
+  }
+
+  /**
+   * Returns the pokemonList array.
+   * @returns {Array} - The array of Pokemon objects.
+   */
+  /**
+   * Displays the details of a selected Pokemon.
+   * @param {Object} pokemon - The Pokemon object to display details for.
+   */
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      showModal(pokemon.name, [
+        document.createElement('img').setAttribute('src', pokemon.imageUrl),
+        document.createTextNode('Height: ' + pokemon.height),
+        document.createTextNode('Types: ' + pokemon.types.map(type => type.name).join(', '))
+      ]);
     });
-  });
-  
-  // Event listeners for modal interactions
-  window.addEventListener('keydown', (e) => {
-    let modalContainer = document.querySelector('#modal-container');
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      pokemonRepository.hideModal();
+  }
+  function getAll() {
+    return pokemonList;
+  }
+
+  /**
+   * Adds a list item with a button for a given Pokemon.
+   * @param {Object} pokemon - The Pokemon object to add to the list.
+   */
+  function addListItem(pokemon) {
+    let listItem = document.createElement('li');
+    listItem.classList.add('group-list-item');
+    let button = document.createElement('button');
+    button.classList.add('btn', 'btn-primary');
+    button.innerText = pokemon.name;
+    button.classList.add('custom-button');
+    listItem.appendChild(button);
+    document.querySelector('.pokemon-list').appendChild(listItem);
+
+    button.addEventListener('click', function () {
+      showDetails(pokemon);
+    });
+  }
+
+  /**
+   * Loads the list of Pokemon from the API.
+   */
+  async function loadList() {
+    console.log('loadList called');
+    try {
+      const response = await fetch(apiUrl);
+      console.log(response);
+      const json = await response.json();
+      console.log(json);
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    } catch (e) {
+      console.error(e);
     }
-  });
-  
-  document.querySelector('#modal-container').addEventListener('click', (e) => {
-    let target = e.target;
-    let modalContainer = document.querySelector('#modal-container');
-    if (target === modalContainer) {
-      pokemonRepository.hideModal();
+  }
+
+  /**
+   * Fetches additional details for a given Pokemon item.
+   * @param {Object} item - The Pokemon item to fetch details for.
+   * @returns {Promise} - A promise that resolves when the details are loaded.
+   */
+  async function loadDetails(item) {
+    let url = item.detailsUrl;
+    try {
+      const response = await fetch(url);
+      const details = await response.json();
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    } catch (e) {
+      console.error(e);
     }
-  });
-  
+  }
+
+  /**
+   * Shows a modal with the specified title and content.
+   * @param {string} title - The title of the modal.
+   * @param {Array} contentElements - An array of DOM elements to be displayed in the modal body.
+   */
+  function showModal(title, contentElements) {
+    let modalTitle = document.querySelector('#pokemonModalLabel');
+
+
+    modalTitle.innerText = title;
+    // Rest of the code for displaying the modal...
+  }
+
+  /**
+   * Hides the modal.
+   */
+  function hideModal() {
+    // code goes here
+  }
+
+  /**
+   * Shows the details of a given Pokemon.
+   * @param {Object} pokemon - The Pokemon object to show details for.
+   */
+  function showDetails(pokemon) {
+    let content = [];
+
+    let nameElement = document.createElement('p');
+    nameElement.innerText = `Name: ${pokemon.name}`;
+
+    let heightElement = document.createElement('p');
+    heightElement.innerText = `Height: ${pokemon.height}`;
+
+    let imageElement = document.createElement('img');
+    imageElement.src = pokemon.imageUrl;
+
+    content.push(nameElement, heightElement, imageElement);
+
+    showModal('Pokémon Details', content);
+  }
+
+  return {
+    add: add,
+    getAll: getAll,
+    addListItem: addListItem,
+    loadList: loadList,
+    hideModal: hideModal
+  };
+})();
