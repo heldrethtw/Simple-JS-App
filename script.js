@@ -1,4 +1,4 @@
-let pokemonRepository = (function() {
+let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
@@ -19,7 +19,7 @@ let pokemonRepository = (function() {
     button.classList.add('btn', 'btn-primary'); // Bootstrap button classes
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokemonModal');
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
       showDetails(pokemon);
     });
     listItem.appendChild(button);
@@ -27,37 +27,37 @@ let pokemonRepository = (function() {
   }
 
   async function loadList() {
-    return fetch(apiUrl).then(function(response) {
+    return fetch(apiUrl).then(function (response) {
       return response.json();
-    }).then(function(json) {
-      json.results.forEach(function(item) {
+    }).then(function (json) {
+      json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
           detailsUrl: item.url
         };
         add(pokemon);
       });
-    }).catch(function(e) {
+    }).catch(function (e) {
       console.error(e);
     });
   }
 
   async function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function(response) {
+    return fetch(url).then(function (response) {
       return response.json();
-    }).then(function(details) {
+    }).then(function (details) {
       // Assign details to the item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       // You can add more details here
-    }).catch(function(e) {
+    }).catch(function (e) {
       console.error(e);
     });
   }
 
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(function() {
+    loadDetails(pokemon).then(function () {
       // Fill in modal details
       document.querySelector('.modal-title').innerText = pokemon.name;
       document.querySelector('.modal-body').innerHTML = `
@@ -67,7 +67,7 @@ let pokemonRepository = (function() {
       $('#pokemonModal').modal('show'); // Use Bootstrap's modal method to show the modal
     });
   }
-  
+
 
   return {
     add: add,
@@ -75,12 +75,12 @@ let pokemonRepository = (function() {
     addListItem: addListItem,
     loadList: loadList
   };
-  })();
+})();
 
-  pokemonRepository.loadList().then(function() {
-    pokemonRepository.getAll().forEach(function(pokemon) {
-      pokemonRepository.addListItem(pokemon);
-    });
+pokemonRepository.loadList().then(function () {
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
   });
+});
 
-  $()
+$()
