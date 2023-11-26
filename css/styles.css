@@ -77,7 +77,6 @@ button:hover {
   background-color: gray;
 }
 
-
 .modal-content {
   background-color: white;
   padding: 20px;
@@ -154,7 +153,7 @@ button:hover {
   border-radius: 10px; /* Optional: Rounded corners */
 }
 
-.navbar-toggler:focus{
+.navbar-toggler:focus {
   outline: none;
 }
 
@@ -181,13 +180,12 @@ button:hover {
   box-shadow: inset 1px 1px 2px #a7a7a7, inset -5px -5px 10px #ffffff; /* Inset shadow for a pressed effect */
 }
 
-
 /* Custom Modal Styling for Large Screens */
-@media (min-width: 992px) { /* Targeting large screens */
+@media (min-width: 992px) {
+  /* Targeting large screens */
   #pokemonModal .modal-dialog {
-      max-width: 300px; /* Smaller width for the modal */
-      margin: 1.75rem 13.5% 1.75rem auto; /* Top and Bottom margins with auto margins for left and right */
-      float: right; /* Align to the right */
+    max-width: 300px; /* Smaller width for the modal */
+    margin: 1.75rem 13.5% 1.75rem auto; /* Top and Bottom margins with auto margins for left and right */
+    float: right; /* Align to the right */
   }
 }
-
