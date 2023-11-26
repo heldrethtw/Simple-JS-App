@@ -44,6 +44,7 @@ let pokemonRepository = (function () {
 
   async function loadDetails(item) {
     let url = item.detailsUrl;
+    console.log('Loading details for:', item.name); // Add console log for debugging
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
@@ -57,6 +58,7 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
+    console.log(pokemon); // Add console log for debugging
     loadDetails(pokemon).then(function () {
       // Fill in modal details
       document.querySelector('.modal-title').innerText = pokemon.name;
@@ -68,12 +70,12 @@ let pokemonRepository = (function () {
     });
   }
 
-
+  // Public methods and properties
   return {
-    add: add,
-    getAll: getAll,
-    addListItem: addListItem,
-    loadList: loadList
+    add: add, // Add a Pokemon to the list
+    getAll: getAll, // Get all the Pokemon in the list
+    addListItem: addListItem, // Add a list item for a Pokemon
+    loadList: loadList // Load the list of Pokemon from the API
   };
 })();
 
