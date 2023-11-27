@@ -125,23 +125,31 @@ button:hover {
   border-radius: 10px; /* Optional: Rounded corners */
 }
 
-
 .pokeball {
   position: relative;
   width: 50px; /* Set desired size */
   height: 50px;
   background: #e0e0e0; /* Light grey background like in the image */
   border-radius: 50%;
-  box-shadow: 
-    20px 20px 40px rgba(0, 0, 0, 0.15), /* Dark shadow for depth */
-    -20px -20px 40px rgba(255, 255, 255, 0.1), /* Light shadow for highlights */
-  inset 1px 1px 2px rgba(0, 0, 0, 0.1), /* Inset shadow for the inner depth */
-  inset -1px -1px 2px rgba(255, 255, 255, 0.3); /* Inset highlight for the inner light */
-   /* Note: Each shadow effect in box-shadow must be a complete and separate declaration, 
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15),
+    /* Dark shadow for depth */ -20px -20px 40px rgba(255, 255, 255, 0.1),
+    /* Light shadow for highlights */ inset 1px 1px 2px rgba(0, 0, 0, 0.1),
+    /* Inset shadow for the inner depth */ inset -1px -1px 2px
+      rgba(255, 255, 255, 0.3); /* Inset highlight for the inner light */
+  /* Note: Each shadow effect in box-shadow must be a complete and separate declaration, 
        correctly separated by commas. Mixing outer and inset shadows in one property 
        requires careful syntax to avoid errors. */
-}
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.15),
+    inset 1px 1px 2px rgba(0, 0, 0, 0.1),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
 
+  /* Glassmorphic styles */
+  background: rgba(255, 255, 255, 0.75); /* Adjust transparency as needed */
+  backdrop-filter: blur(10px); /* Create the frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+}
 
 .top-half {
   position: absolute;
@@ -176,9 +184,9 @@ button:hover {
   background: black;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 
-  inset 1px 1px 2px rgba(0, 0, 0, 0.3), /* Adjusted for a more noticeable inset shadow */
-  inset -1px -1px 2px rgba(255, 255, 255, 0.7); /* Adjusted for a more noticeable inset highlight */
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3),
+    /* Adjusted for a more noticeable inset shadow */ inset -1px -1px 2px
+      rgba(255, 255, 255, 0.7); /* Adjusted for a more noticeable inset highlight */
 }
 
 .center-circle {
@@ -190,7 +198,6 @@ button:hover {
   background: white;
   border-radius: 50%;
 }
-
 
 .navbar-brand,
 .navbar-nav .nav-link {
