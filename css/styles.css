@@ -125,6 +125,73 @@ button:hover {
   border-radius: 10px; /* Optional: Rounded corners */
 }
 
+
+.pokeball {
+  position: relative;
+  width: 50px; /* Set desired size */
+  height: 50px;
+  background: #e0e0e0; /* Light grey background like in the image */
+  border-radius: 50%;
+  box-shadow: 
+    20px 20px 40px rgba(0, 0, 0, 0.15), /* Dark shadow for depth */
+    -20px -20px 40px rgba(255, 255, 255, 0.1), /* Light shadow for highlights */
+  inset 1px 1px 2px rgba(0, 0, 0, 0.1), /* Inset shadow for the inner depth */
+  inset -1px -1px 2px rgba(255, 255, 255, 0.3); /* Inset highlight for the inner light */
+   /* Note: Each shadow effect in box-shadow must be a complete and separate declaration, 
+       correctly separated by commas. Mixing outer and inset shadows in one property 
+       requires careful syntax to avoid errors. */
+}
+
+
+.top-half {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50%;
+  background: red;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border: 2px solid black; /* Added border */
+  border-bottom: none; /* Removes the bottom border */
+}
+
+.bottom-half {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: white;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border: 2px solid black; /* Added border */
+  border-top: none; /* Removes the top border */
+}
+
+.center-circle-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px; /* Set desired size */
+  height: 14px;
+  background: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+  inset 1px 1px 2px rgba(0, 0, 0, 0.3), /* Adjusted for a more noticeable inset shadow */
+  inset -1px -1px 2px rgba(255, 255, 255, 0.7); /* Adjusted for a more noticeable inset highlight */
+}
+
+.center-circle {
+  position: absolute;
+  top: 2px; /* Adjust size for the border */
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: white;
+  border-radius: 50%;
+}
+
+
 .navbar-brand,
 .navbar-nav .nav-link {
   color: #333; /* Dark grey color for readability */
