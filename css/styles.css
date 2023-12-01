@@ -1,4 +1,8 @@
-body, h1, ul, li, button {
+body,
+h1,
+ul,
+li,
+button {
   margin: 0;
   padding: 0;
 }
@@ -74,7 +78,8 @@ button:hover {
   border-radius: 5px;
 }
 
-.modal-header, .modal-body {
+.modal-header,
+.modal-body {
   padding: 10px;
 }
 
@@ -87,7 +92,8 @@ button:hover {
   transition: all 0.9s ease-in-out;
 }
 
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover,
+.btn-primary:focus {
   background-color: #d1d1d1;
   box-shadow: inset 1px 1px 2px #a7a7a7, inset -5px -5px 10px #ffffff;
   color: #000;
@@ -181,13 +187,15 @@ button:hover {
   border-radius: 50%;
 }
 
-.navbar-brand, .navbar-nav .nav-link {
+.navbar-brand,
+.navbar-nav .nav-link {
   color: #333;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
   color: #000;
 }
 
@@ -221,7 +229,8 @@ button:hover {
   border-radius: 10px;
 }
 
-.navbar-toggler:hover, .navbar-toggler:focus {
+.navbar-toggler:hover,
+.navbar-toggler:focus {
   background-color: #d1d1d1;
   box-shadow: inset 1px 1px 2px #a7a7a7, inset -5px -5px 10px #ffffff;
 }

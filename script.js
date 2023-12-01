@@ -13,10 +13,10 @@ let pokemonRepository = (function () {
   function addListItem(pokemon) {
     let list = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
-    listItem.classList.add('list-group-item'); 
+    listItem.classList.add('list-group-item');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('btn', 'btn-primary'); 
+    button.classList.add('btn', 'btn-primary');
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokemonModal');
     button.addEventListener('click', function () {
@@ -44,38 +44,38 @@ let pokemonRepository = (function () {
 
   async function loadDetails(item) {
     let url = item.detailsUrl;
-    console.log('Loading details for:', item.name); 
+    console.log('Loading details for:', item.name);
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
-      
+
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      
+
     }).catch(function (e) {
       console.error(e);
     });
   }
 
   function showDetails(pokemon) {
-    console.log(pokemon); 
+    console.log(pokemon);
     loadDetails(pokemon).then(function () {
-      
+
       document.querySelector('.modal-title').innerText = pokemon.name;
       document.querySelector('.modal-body').innerHTML = `
         <p><strong>Height:</strong> ${pokemon.height}</p>
         <img src="${pokemon.imageUrl}" alt="Image of ${pokemon.name}">
       `;
-      $('#pokemonModal').modal('show'); 
+      $('#pokemonModal').modal('show');
     });
   }
 
-  
+
   return {
-    add: add, 
-    getAll: getAll, 
-    addListItem: addListItem, 
-    loadList: loadList 
+    add: add,
+    getAll: getAll,
+    addListItem: addListItem,
+    loadList: loadList
   };
 })();
 
@@ -85,4 +85,4 @@ pokemonRepository.loadList().then(function () {
   });
 });
 
-$()
+$() 
