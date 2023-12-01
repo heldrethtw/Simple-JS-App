@@ -1,21 +1,14 @@
-/* Basic Reset */
-body,
-h1,
-ul,
-li,
-button {
+body, h1, ul, li, button {
   margin: 0;
   padding: 0;
 }
 
-/* Basic Body Styling */
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif; /* A more modern font */
-  background-color: #e0e0e0; /* Light grey background to match buttons */
-  color: #333; /* Darker text color for better readability */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #e0e0e0;
+  color: #333;
 }
 
-/* Basic Container Styling */
 .container {
   background-color: #e0e0e0;
   border-radius: 10px;
@@ -24,39 +17,38 @@ body {
   margin: 0 auto;
   padding: 20px;
 }
+
 @media (max-width: 768px) {
   .container {
     max-width: 90%;
   }
 }
-/* Basic Header Styling */
+
 header {
-  text-align: center; /* Center aligns the header text */
-  font-size: 2em; /* Larger font size */
-  font-weight: bold; /* Bold font weight */
-  color: #8d4040; /* Dark grey color for readability */
-  background-color: #e0e0e0; /* Light grey background */
-  padding: 20px; /* Padding for spacing */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 4px 4px 8px #a7a7a7, -4px -4px 8px #ffffff; /* Neumorphic shadow */
-  margin-bottom: 20px; /* Space below the header */
-  position: relative; /* Allows for absolute positioning of the button */
-  overflow: hidden; /* Hides the button when it's not in use */
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #8d4040;
+  background-color: #e0e0e0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px #a7a7a7, -4px -4px 8px #ffffff;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Optional: Responsive adjustments */
 @media (max-width: 768px) {
   header {
-    font-size: 1.5em; /* Slightly smaller font size on smaller screens */
+    font-size: 1.5em;
   }
 }
 
-/* Basic List Styling */
 .pokemon-list {
   list-style-type: none;
   background-color: #dcc9c9;
-  padding: 20px; /*adds padding inside of list*/
-  margin: 0 -20px; /*removes padding from outside of list*/
+  padding: 20px;
+  margin: 0 -20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -64,7 +56,6 @@ header {
   justify-content: space-around;
 }
 
-/* Basic Button Styling */
 button {
   padding: 10px;
   margin: 5px;
@@ -83,72 +74,64 @@ button:hover {
   border-radius: 5px;
 }
 
-.modal-header,
-.modal-body {
+.modal-header, .modal-body {
   padding: 10px;
 }
 
 .btn-primary {
-  background-color: #e0e0e0; /* Light grey background, adjust as needed */
+  background-color: #e0e0e0;
   border: none;
-  border-radius: 3px; /* Rounded corners */
-  box-shadow: 1px 1px 1.7px 0.5px #a7a7a7, -5px -5px 5px #ffffff; /* Soft outer shadow */
-  color: #333; /* Text color, adjust as needed */
-  transition: all 0.9s ease-in-out; /* Animation type */
+  border-radius: 3px;
+  box-shadow: 1px 1px 1.7px 0.5px #a7a7a7, -5px -5px 5px #ffffff;
+  color: #333;
+  transition: all 0.9s ease-in-out;
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: #d1d1d1; /* Slightly darker background on hover/focus */
-  box-shadow: inset 1px 1px 2px #a7a7a7, inset -5px -5px 10px #ffffff; /* Inset shadow for a pressed effect */
-  color: #000; /* Darker text color on hover/focus */
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #d1d1d1;
+  box-shadow: inset 1px 1px 2px #a7a7a7, inset -5px -5px 10px #ffffff;
+  color: #000;
 }
 
 .pokemon-list li {
-  background-color: #e0e0e0; /* Light grey background */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 5px 5px 10px #a7a7a7, -5px -5px 10px #ffffff; /* Neumorphic shadow */
-  margin: 10px; /* Space between list items */
-  padding: 15px; /* Padding inside each list item */
-  list-style-type: none; /* Remove default list styling */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #a7a7a7, -5px -5px 10px #ffffff;
+  margin: 10px;
+  padding: 15px;
+  list-style-type: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pokemon-list li:hover {
-  background-color: #d9d9d9; /* Slightly darker background on hover */
-  box-shadow: 3px 3px 6px #a7a7a7, -3px -3px 6px #ffffff; /* Subtle shadow change on hover */
+  background-color: #d9d9d9;
+  box-shadow: 3px 3px 6px #a7a7a7, -3px -3px 6px #ffffff;
 }
 
 .navbar {
-  background-color: #e0e0e0; /* Light grey, similar to other neumorphic elements */
-  box-shadow: 4px 4px 8px #a7a7a7, -4px -4px 8px #ffffff; /* Neumorphic shadow */
-  border-radius: 10px; /* Optional: Rounded corners */
+  background-color: #e0e0e0;
+  box-shadow: 4px 4px 8px #a7a7a7, -4px -4px 8px #ffffff;
+  border-radius: 10px;
 }
 
 .pokeball {
   position: relative;
-  width: 50px; /* Set desired size */
+  width: 50px;
   height: 50px;
-  background: #e0e0e0; /* Light grey background like in the image */
+  background: #e0e0e0;
   border-radius: 50%;
   box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15),
-    /* Dark shadow for depth */ -20px -20px 40px rgba(255, 255, 255, 0.1),
-    /* Light shadow for highlights */ inset 1px 1px 2px rgba(0, 0, 0, 0.1),
-    /* Inset shadow for the inner depth */ inset -1px -1px 2px
-      rgba(255, 255, 255, 0.3); /* Inset highlight for the inner light */
-  /* Note: Each shadow effect in box-shadow must be a complete and separate declaration, 
-       correctly separated by commas. Mixing outer and inset shadows in one property 
-       requires careful syntax to avoid errors. */
+    -20px -20px 40px rgba(255, 255, 255, 0.1),
+    inset 1px 1px 2px rgba(0, 0, 0, 0.1),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.3);
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.15),
     -8px -8px 16px rgba(255, 255, 255, 0.15),
     inset 1px 1px 2px rgba(0, 0, 0, 0.1),
     inset -1px -1px 2px rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-
-  /* Glassmorphic styles */
-  background: rgba(255, 255, 255, 0.75); /* Adjust transparency as needed */
-  backdrop-filter: blur(10px); /* Create the frosted glass effect */
-  -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .top-half {
@@ -159,8 +142,8 @@ button:hover {
   background: red;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
-  border: 2px solid black; /* Added border */
-  border-bottom: none; /* Removes the bottom border */
+  border: 2px solid black;
+  border-bottom: none;
 }
 
 .bottom-half {
@@ -171,27 +154,26 @@ button:hover {
   background: white;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  border: 2px solid black; /* Added border */
-  border-top: none; /* Removes the top border */
+  border: 2px solid black;
+  border-top: none;
 }
 
 .center-circle-border {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 14px; /* Set desired size */
+  width: 14px;
   height: 14px;
   background: black;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3),
-    /* Adjusted for a more noticeable inset shadow */ inset -1px -1px 2px
-      rgba(255, 255, 255, 0.7); /* Adjusted for a more noticeable inset highlight */
+    inset -1px -1px 2px rgba(255, 255, 255, 0.7);
 }
 
 .center-circle {
   position: absolute;
-  top: 2px; /* Adjust size for the border */
+  top: 2px;
   left: 2px;
   right: 2px;
   bottom: 2px;
@@ -199,32 +181,29 @@ button:hover {
   border-radius: 50%;
 }
 
-.navbar-brand,
-.navbar-nav .nav-link {
-  color: #333; /* Dark grey color for readability */
-  font-weight: bold; /* Optionally making the font bold */
-  transition: color 0.3s ease; /* Smooth transition for hover effects */
+.navbar-brand, .navbar-nav .nav-link {
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  color: #000; /* Darker color on hover/focus */
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+  color: #000;
 }
 
-/* Adjustments for navbar-toggler (hamburger menu on smaller screens) */
 .navbar-toggler {
-  border-color: #a7a7a7; /* Color of the toggler icon */
+  border-color: #a7a7a7;
 }
 
 .navbar-toggler-icon {
-  background-image: url("..."); /* Optional: if you want a custom icon */
+  background-image: url("...");
 }
 
 .navbar-toggler {
-  background-color: #cc8787; /* Light grey, similar to other neumorphic elements */
-  border: none; /* Remove borders */
-  box-shadow: 4px 4px 8px #a7a7a7, -4px -4px 8px #ffffff; /* Neumorphic shadow */
-  border-radius: 10px; /* Optional: Rounded corners */
+  background-color: #cc8787;
+  border: none;
+  box-shadow: 4px 4px 8px #a7a7a7, -4px -4px 8px #ffffff;
+  border-radius: 10px;
 }
 
 .navbar-toggler:focus {
@@ -233,33 +212,29 @@ button:hover {
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23999999' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  /* Custom SVG icon for the toggler */
 }
 
 .navbar-toggler.navbar-toggler {
-  background-color: #e0e0e0; /* Light grey, similar to other neumorphic elements */
-  border: none; /* Remove borders */
-  box-shadow: 4px 4px 8px #a7a7a7, -4px -4px 8px #ffffff; /* Neumorphic shadow */
-  border-radius: 10px; /* Optional: Rounded corners */
+  background-color: #e0e0e0;
+  border: none;
+  box-shadow: 4px 4px 8px #a7a7a7, -4px -4px 8px #ffffff;
+  border-radius: 10px;
 }
 
-.navbar-toggler:hover,
-.navbar-toggler:focus {
-  background-color: #d1d1d1; /* Slightly darker background on hover/focus */
-  box-shadow: inset 1px 1px 2px #a7a7a7, inset -5px -5px 10px #ffffff; /* Inset shadow for a pressed effect */
+.navbar-toggler:hover, .navbar-toggler:focus {
+  background-color: #d1d1d1;
+  box-shadow: inset 1px 1px 2px #a7a7a7, inset -5px -5px 10px #ffffff;
 }
 
 .navbar-toggler:not(.collapsed) {
-  background-color: #d1d1d1; /* Slightly darker background on toggle */
-  box-shadow: inset 1px 1px 2px #a7a7a7, inset -5px -5px 10px #ffffff; /* Inset shadow for a pressed effect */
+  background-color: #d1d1d1;
+  box-shadow: inset 1px 1px 2px #a7a7a7, inset -5px -5px 10px #ffffff;
 }
 
-/* Custom Modal Styling for Large Screens */
 @media (min-width: 992px) {
-  /* Targeting large screens */
   #pokemonModal .modal-dialog {
-    max-width: 300px; /* Smaller width for the modal */
-    margin: 1.75rem 13.5% 1.75rem auto; /* Top and Bottom margins with auto margins for left and right */
-    float: right; /* Align to the right */
+    max-width: 300px;
+    margin: 1.75rem 13.5% 1.75rem auto;
+    float: right;
   }
 }
