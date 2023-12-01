@@ -44,7 +44,7 @@ let pokemonRepository = (function () {
 
   async function loadDetails(item) {
     let url = item.detailsUrl;
-    console.log('Loading details for:', item.name);
+
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
@@ -58,7 +58,7 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
-    console.log(pokemon);
+
     loadDetails(pokemon).then(function () {
 
       document.querySelector('.modal-title').innerText = pokemon.name;
